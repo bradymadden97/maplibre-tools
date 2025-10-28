@@ -1,11 +1,18 @@
 {
     "name": "maplibre-tools",
-    "private": true,
+    "pnpm": {
+        "overrides": {
+            "maplibre-gl": "file:../../oss-forks/maplibre-gl-js"
+        }
+    },
+    "scripts": {
+        "dev:repro": "./scripts/repro.sh"
+    },
     "peerDependencies": {
         "typescript": "^5"
     },
     "dependencies": {
-        "maplibre-gl": "file:../../oss-forks/maplibre-gl-js"
+        "maplibre-gl": "^5.10.0"
     },
     "devDependencies": {
         "vite": "^7.1.12"
