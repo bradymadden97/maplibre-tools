@@ -1,9 +1,7 @@
 {
     "name": "maplibre-tools",
     "pnpm": {
-        "overrides": {
-            "maplibre-gl": "file:../../oss-forks/maplibre-gl-js"
-        }
+        "overrides": {}
     },
     "scripts": {
         "dev:repro": "./scripts/repro.sh"
