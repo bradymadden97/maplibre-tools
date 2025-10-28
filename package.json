@@ -6,5 +6,8 @@
     },
     "dependencies": {
         "maplibre-gl": "file:../../oss-forks/maplibre-gl-js"
+    },
+    "devDependencies": {
+        "vite": "^7.1.12"
     }
 }

@@ -1,6 +1,6 @@
 import { Map } from "maplibre-gl";
 
-const SOURCE = "";
+const SOURCE = `https://raw.githubusercontent.com/bradymadden97/maplibre-tools/refs/heads/main/sources/faa-airports.geojson`;
 const map = new Map({
   container: "map",
   style: `https://tiles.openfreemap.org/styles/bright`,
