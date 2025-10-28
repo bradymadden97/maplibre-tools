@@ -1,0 +1,10 @@
+{
+    "name": "maplibre-tools",
+    "private": true,
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "dependencies": {
+        "maplibre-gl": "file:../../oss-forks/maplibre-gl-js"
+    }
+}
