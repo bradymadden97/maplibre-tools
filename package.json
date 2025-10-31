@@ -1,8 +1,5 @@
 {
     "name": "maplibre-tools",
-    "pnpm": {
-        "overrides": {}
-    },
     "scripts": {
         "dev:repro": "./scripts/repro.sh"
     },

@@ -6,4 +6,4 @@ if [ -z "$1" ]; then
 fi
 
 echo "Serving repro from: ./repros/$1"
-vite serve "./repros/$1"
+vite serve "./repros/$1" --force
