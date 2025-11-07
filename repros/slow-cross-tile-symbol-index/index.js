@@ -68,10 +68,6 @@ function randomPointGenerator(lng, lat, radius) {
         "icon-ignore-placement": true,
         "icon-image": "museum",
         "icon-size": 1,
-        "text-field": ["get", "label"],
-        "text-font": ["Noto Sans Regular"],
-        "text-offset": [0, 1.5],
-        "text-size": 10,
       },
     });
   });
