@@ -93,6 +93,8 @@ import { Map } from "maplibre-gl";
       });
     }
 
+    // Switch to reveal working
+    // map.getSource("source").setData(generateData());
     map.getSource("source").updateData({
       add: generateData().features,
     });
