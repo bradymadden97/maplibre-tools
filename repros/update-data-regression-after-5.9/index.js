@@ -26,6 +26,7 @@ import { Map } from "maplibre-gl";
           id,
           properties: {
             textProperty: "text",
+            undefinedProperty: undefined,
           },
           geometry: {
             type: "Point",
