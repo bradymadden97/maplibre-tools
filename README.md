@@ -19,3 +19,20 @@ pnpm dev:repro <repro-dir-name> # e.g. `slow-zoom-on-large-feature-state`
 
 2. You'll need to restart `pnpm dev:repro ...` after every change to maplibre,
 as we don't yet support hot reloading of node modules.
+
+## To run against a stable worker name (unminified)
+
+1. Set worker name at the top of your `.js` file
+
+    ```javascript
+    import { Map, setWorkerUrl } from "maplibre-gl";
+    import { MAPLIBRE_CSP_WORKER_DEV_FILENAME } from "../../constants/consts";
+
+    setWorkerUrl(MAPLIBRE_CSP_WORKER_DEV_FILENAME);
+    ```
+
+2. Change your local maplibre `package.json` to
+
+    ```json
+    "main": "dist/maplibre-gl-csp-dev.js",
+    ```

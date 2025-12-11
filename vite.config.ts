@@ -7,7 +7,6 @@ const resolveMaplibreCspWorkerPlugin = (): Plugin => ({
   name: "resolve-maplibre-csp-worker-plugin",
   configureServer(server) {
     server.middlewares.use((req, res, next) => {
-      console.log("RESOLVING REQ222", req.url);
       if (req.url === `/${MAPLIBRE_CSP_WORKER_DEV_FILENAME}`) {
         res.writeHead(200, { "Content-Type": "text/html" });
         res.end(
