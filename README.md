@@ -21,6 +21,13 @@ pnpm dev:repro <repro-dir-name> # e.g. `slow-zoom-on-large-feature-state`
 as we don't yet support hot reloading of node modules.
 
 ## To run against a stable worker name (unminified)
+This is useful when you want to set a breakpoint within the 
+worker code, and have it persist across page reloads. In the
+normal path, maplibre uses Blob urls to construct its
+workers, which are not stable. To work around this,
+we can use their CSP build, which allows us to specify
+a stable worker path.
+
 
 1. Set worker name at the top of your `.js` file
 
