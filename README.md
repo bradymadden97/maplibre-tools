@@ -29,7 +29,7 @@ we can use their CSP build, which allows us to specify
 a stable worker path.
 
 
-1. Set worker name at the top of your `.js` file
+1. Set worker name at the top of your `<repro>.js` file
 
     ```javascript
     import { Map, setWorkerUrl } from "maplibre-gl";
