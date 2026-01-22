@@ -1,8 +1,8 @@
 import { Map } from "maplibre-gl";
 
 // To run repro:
-// 1. Start proxy source server, see instructions in `vector-tile-etag-proxy.ts`
-// 4. Run the client using instructions in README
+// 1. Start proxy source server, see instructions in `sources/vector-tile-etag-proxy.ts`
+// 2. Run the client using instructions in README
 const SOURCE_URL = `http://localhost:3000/tiles/contours/tiles.json`;
 
 (async function () {
