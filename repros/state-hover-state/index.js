@@ -9,14 +9,14 @@ const map = new Map({
 });
 globalThis.map = map;
 map.showTileBoundaries = true;
-// //
 
 map.on("load", async () => {
   const data = await fetch(SOURCE).then((r) => r.json());
 
-  data.features = data.features.filter(
-    (f) => f.properties.STATE_NAME === "Virginia"
-  );
+  // Filter to a single state (for testing fix)
+  // data.features = data.features.filter(
+  //   (f) => f.properties.STATE_NAME === "Virginia"
+  // );
 
   // Add geojson source
   map.addSource("states", {
@@ -57,10 +57,18 @@ map.on("load", async () => {
   for (const i of data.features) {
     map.setFeatureState(
       { source: "states", id: i.properties.STATE_NAME },
-      { hover: true }
+      { hover: true },
     );
-    map.removeFeatureState({ source: "states", id: i.properties.STATE_NAME });
+    map.removeFeatureState({
+      source: "states",
+      id: i.properties.STATE_NAME,
+    });
   }
+
+  // Remove the source level feature state
+  map.removeFeatureState({
+    source: "states",
+  });
 
   // Set up listeners
   let hoveredId = null;
