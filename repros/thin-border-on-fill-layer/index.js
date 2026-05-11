@@ -1,7 +1,6 @@
 import { Map, setWorkerUrl } from "maplibre-gl";
-import { MAPLIBRE_CSP_WORKER_DEV_FILENAME } from "../../constants/consts";
 
-setWorkerUrl(MAPLIBRE_CSP_WORKER_DEV_FILENAME);
+setWorkerUrl(__MAPLIBRE_CSP_WORKER_FILENAME__);
 
 (async function () {
   const style = await fetch(`https://tiles.openfreemap.org/styles/dark`)
