@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>addImage OOM repro</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css">
+  <style>
+    body { margin: 0; }
+    #map { width: 100vw; height: 100vh; }
+    #status {
+      position: absolute; top: 10px; left: 10px; z-index: 1;
+      background: rgba(0,0,0,0.8); color: #eee; padding: 12px 16px;
+      font: 13px/1.5 monospace; border-radius: 4px; max-width: 500px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div id="status">Loading map...</div>
+  <script type="module" src="./index.js"></script>
+</body>
+</html>

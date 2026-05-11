@@ -4,42 +4,25 @@
 
 ```bash
 pnpm i
-pnpm dev:repro <repro-dir-name> # e.g. `slow-zoom-on-large-feature-state`
+pnpm dev:repro <repro-dir-name> # e.g. `addimage-oom`
 ```
 
-## To run a reproduction against a local maplibre
+## To run against a local maplibre build
 
-1. Update `package.json` to point at your local maplibre:
+```bash
+pnpm dev:repro:local <repro-dir-name>
+```
 
-    ```json
-    "dependencies": {
-        "maplibre-gl": "file:../../maplibre/maplibre-gl-js"
-    }
-    ```
+This sets `MAPLIBRE_LOCAL=1` which aliases `maplibre-gl` imports to your local dev build at `../../maplibre/maplibre-gl-js/dist/maplibre-gl-dev.mjs`.
 
-2. You'll need to restart `pnpm dev:repro ...` after every change to maplibre,
-as we don't yet support hot reloading of node modules.
+Your repro must handle the worker URL when using the local build:
 
-## To run against a stable worker name (unminified)
+```javascript
+import { Map, setWorkerUrl } from "maplibre-gl";
 
-This is useful when you want to set a breakpoint within the
-worker code, and have it persist across page reloads. In the
-normal path, maplibre uses Blob urls to construct its
-workers, which are not stable. To work around this,
-we can use their CSP build, which allows us to specify
-a stable worker path.
+if (__MAPLIBRE_LOCAL__) {
+  setWorkerUrl("/maplibre-gl-worker-dev.mjs");
+}
+```
 
-1. Set worker name at the top of your `<repro>.js` file
-
-    ```javascript
-    import { Map, setWorkerUrl } from "maplibre-gl";
-    import { MAPLIBRE_CSP_WORKER_DEV_FILENAME } from "../../constants/consts";
-
-    setWorkerUrl(MAPLIBRE_CSP_WORKER_DEV_FILENAME);
-    ```
-
-2. Change your local maplibre `package.json` to
-
-    ```json
-    "main": "dist/maplibre-gl-csp-dev.js",
-    ```
+Rebuild maplibre (`npm run build-dev`) and restart the repro server after changes.

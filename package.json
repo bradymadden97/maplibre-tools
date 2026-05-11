@@ -1,13 +1,14 @@
 {
     "name": "maplibre-tools",
     "scripts": {
-        "dev:repro": "./scripts/repro.sh"
+        "dev:repro": "./scripts/repro.sh",
+        "dev:repro:local": "MAPLIBRE_LOCAL=1 ./scripts/repro.sh"
     },
     "peerDependencies": {
         "typescript": "^5"
     },
     "dependencies": {
-        "maplibre-gl": "file:../../maplibre/maplibre-gl-js"
+        "maplibre-gl": "5.24.0"
     },
     "devDependencies": {
         "@types/bun": "latest",
